@@ -38,7 +38,7 @@ function App() {
   const [displayLocation, setDisplayLocation] = useState("");
   const [weather, setWeather] = useState({});
 
-  fetchWeather = async () => {
+  const fetchWeather = async () => {
     if (location.length < 2) return setWeather({});
 
     try {
@@ -72,11 +72,12 @@ function App() {
     }
   };
 
-  setLocation = (e) => this.setState({ location: e.target.value });
+  setLocation((e) => e.target.value);
 
   // useEffect []
   useEffect(() => {
-    setLocation(localStorage.getItem("location") || "");
+    const storedLocation = localStorage.getItem("location") || "";
+    setLocation(storedLocation);
   }, []);
 
   // useEffect [location]
@@ -86,7 +87,7 @@ function App() {
       fetchWeather();
       localStorage.setItem("location", location);
     }
-  }, [location]);
+  }, [location, fetchWeather]);
 
   return (
     <div className="app">
