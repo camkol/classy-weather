@@ -38,7 +38,12 @@ function App() {
   const [displayLocation, setDisplayLocation] = useState("");
   const [weather, setWeather] = useState({});
 
-  const fetchWeather = async () => {
+  async function fetchWeather(
+    location,
+    setDisplayLocation,
+    setWeather,
+    setIsLoading
+  ) {
     if (location.length < 2) return setWeather({});
 
     try {
@@ -70,9 +75,7 @@ function App() {
     } finally {
       setIsLoading(false);
     }
-  };
-
-  setLocation((e) => e.target.value);
+  }
 
   // useEffect []
   useEffect(() => {
@@ -84,16 +87,16 @@ function App() {
 
   useEffect(() => {
     if (location) {
-      fetchWeather();
+      fetchWeather(location, setDisplayLocation, setWeather, setIsLoading);
       localStorage.setItem("location", location);
     }
-  }, [location, fetchWeather]);
+  }, [location]);
 
   return (
     <div className="app">
       <h1>Classy Weather</h1>
 
-      <Input location={location} onChangeLocation={this.setLocation} />
+      <Input location={location} onChangeLocation={setLocation} />
 
       {isLoading && <p className="loader">Loading...</p>}
 
@@ -113,7 +116,7 @@ function Input({ location, onChangeLocation }) {
         type="text"
         placeholder="Search from location..."
         value={location}
-        onChange={onChangeLocation}
+        onChange={(e) => onChangeLocation(e.target.value)}
       />
     </div>
   );
@@ -152,19 +155,15 @@ function Weather({ weather, location }) {
   );
 }
 
-class Day extends React.Component {
-  render() {
-    const { date, max, min, code, isToday } = this.props;
-
-    return (
-      <li className="day">
-        <span>{getWeatherIcon(code)}</span>
-        <p>{isToday ? "Today" : formatDay(date)}</p>
-        <p>
-          {Math.floor(min)}&deg; &mdash; <strong>{Math.ceil(max)}&deg;</strong>
-        </p>
-        <p></p>
-      </li>
-    );
-  }
+function Day({ date, max, min, code, isToday }) {
+  return (
+    <li className="day">
+      <span>{getWeatherIcon(code)}</span>
+      <p>{isToday ? "Today" : formatDay(date)}</p>
+      <p>
+        {Math.floor(min)}&deg; &mdash; <strong>{Math.ceil(max)}&deg;</strong>
+      </p>
+      <p></p>
+    </li>
+  );
 }
