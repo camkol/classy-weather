@@ -13,7 +13,7 @@ html {
 body {
   font-family: "Cinzel Decorative", cursive;
   font-size: 2rem;
-  height: 100vh;
+  /* height: 100vh; */
   color: #222;
   background-color: #eabfb9;
   display: flex;
@@ -89,4 +89,8 @@ input:focus {
 .loader {
   font-size: 2.4rem;
   font-weight: 700;
+}
+
+.title {
+  margin: 3rem;
 }

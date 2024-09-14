@@ -32,7 +32,7 @@ function formatDay(dateStr) {
   }).format(new Date(dateStr));
 }
 
-class App extends React.Component {
+class ForcastOne extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -103,7 +103,7 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default ForcastOne;
 
 class Weather extends React.Component {
   render() {

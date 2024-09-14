@@ -32,7 +32,7 @@ function formatDay(dateStr) {
   }).format(new Date(dateStr));
 }
 
-class App extends React.Component {
+class ForcastTwo extends React.Component {
   state = {
     location: "",
     isLoading: false,
@@ -127,7 +127,7 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default ForcastTwo;
 
 class Input extends React.Component {
   render() {
