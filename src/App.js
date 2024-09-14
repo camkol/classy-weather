@@ -106,19 +106,17 @@ function App() {
 
 export default App;
 
-class Input extends React.Component {
-  render() {
-    return (
-      <div>
-        <input
-          type="text"
-          placeholder="Search from location..."
-          value={this.props.location}
-          onChange={this.props.onChangeLocation}
-        />
-      </div>
-    );
-  }
+function Input({ location, onChangeLocation }) {
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Search from location..."
+        value={location}
+        onChange={onChangeLocation}
+      />
+    </div>
+  );
 }
 
 class Weather extends React.Component {
