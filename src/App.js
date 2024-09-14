@@ -119,37 +119,37 @@ function Input({ location, onChangeLocation }) {
   );
 }
 
-class Weather extends React.Component {
-  componentWillUnmount() {
-    console.log("will unmount");
-  }
+function Weather({ weather, location }) {
+  useEffect(() => {
+    return () => {
+      console.log("will unmount");
+    };
+  });
 
-  render() {
-    const {
-      temperature_2m_max: max,
-      temperature_2m_max: min,
-      time: dates,
-      weathercode: codes,
-    } = this.props.weather;
+  const {
+    temperature_2m_max: max,
+    temperature_2m_max: min,
+    time: dates,
+    weathercode: codes,
+  } = weather;
 
-    return (
-      <div>
-        <h2>Weather {this.props.location}</h2>
-        <ul className="weather">
-          {dates.map((date, i) => (
-            <Day
-              date={date}
-              max={max.at(i)}
-              min={min.at(i)}
-              code={codes.at(i)}
-              key={date}
-              isToday={i === 0}
-            />
-          ))}
-        </ul>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <h2>Weather {location}</h2>
+      <ul className="weather">
+        {dates.map((date, i) => (
+          <Day
+            date={date}
+            max={max.at(i)}
+            min={min.at(i)}
+            code={codes.at(i)}
+            key={date}
+            isToday={i === 0}
+          />
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 class Day extends React.Component {
