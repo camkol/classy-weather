@@ -33,8 +33,6 @@ Users should be able to:
 
 ## My process
 
-Certainly! Here's an elaboration on the process of transitioning from class components to function components in React, considering the steps you've outlined:
-
 1. **Our First Class Component:** Begin by creating a basic class component to manage state and lifecycle methods. This foundational step involves setting up a component with state, rendering UI elements, and using class-based methods for interaction and updates.
 
 2. **Working With Event Handlers:** Implement event handlers in your class component to manage user interactions. This step involves defining methods to handle events such as button clicks or form submissions and binding these methods to the component’s context.
@@ -51,18 +49,14 @@ Certainly! Here's an elaboration on the process of transitioning from class comp
 
 8. **Convert Class to Function Components:** Finally, transition your class components to function components using React hooks. Replace lifecycle methods with `useEffect`, manage state with `useState`, and handle events directly in functional components. This modern approach simplifies code, reduces boilerplate, and aligns with current best practices in React development.
 
-By following these steps, you’ll transition from a class-based approach to a more modern and concise functional component style, leveraging hooks for state management and side effects.
-
 ### Built with
 
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- Mobile-first workflow
 - Mobile-Responsive Design
 - JavaScript - Scripting language
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
 
 ### What I learned
 
